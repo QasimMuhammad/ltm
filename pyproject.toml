@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ltm-website"
+version = "0.1.0"
+description = "License to Marry - Marriage preparation website"
+requires-python = ">=3.8"
+dependencies = [
+    "flask",
+    "flask-cors",
+    "sqlalchemy",
+    "python-dotenv",
+]
+
+[project.optional-dependencies]
+dev = [
+    "mypy",
+    "ruff",
+]
+
+[tool.setuptools]
+packages = ["src"]
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+
+[tool.ruff]
+line-length = 100
+target-version = "py38" 

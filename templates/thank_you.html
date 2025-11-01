@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - LTM</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>LTM.com</h1>
+            <p class="tagline">License to Marry - Prepare for a Lifetime of Love</p>
+            <nav>
+                <ul>
+                    <li><a href="/#hero">About</a></li>
+                    <li><a href="/#services">Our Services</a></li>
+                    <li><a href="/questionnaire/couple">Questionnaire</a></li>
+                    <li><a href="/#consultation">Consultation</a></li>
+                    <li><a href="/#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="thank-you">
+        <div class="container">
+            <div class="thank-you-card">
+                <i class="fas fa-heart thank-you-icon"></i>
+                <h2>Thank You!</h2>
+                <p>Your responses have been submitted successfully. These insights will help build a stronger foundation for your marriage journey.</p>
+                <p>To get the most benefit from this exercise, we recommend:</p>
+                <ul>
+                    <li>Having your partner complete the questionnaire as well</li>
+                    <li>Inviting parents from both families to complete the parent questionnaire</li>
+                    <li>Scheduling a consultation to discuss your responses with an expert</li>
+                </ul>
+                <div class="cta-buttons">
+                    <a href="/" class="btn primary">Return Home</a>
+                    <a href="/#consultation" class="btn secondary">Book Consultation</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 LTM.com - License to Marry. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html> 

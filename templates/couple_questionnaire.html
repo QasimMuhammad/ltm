@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Couple Questionnaire - LTM</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>LTM.com</h1>
+            <p class="tagline">License to Marry - Prepare for a Lifetime of Love</p>
+            <nav>
+                <ul>
+                    <li><a href="/#hero">About</a></li>
+                    <li><a href="/#services">Our Services</a></li>
+                    <li><a href="/questionnaire/couple">Questionnaire</a></li>
+                    <li><a href="/#consultation">Consultation</a></li>
+                    <li><a href="/#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="questionnaire">
+        <div class="container">
+            <h2>Couple Questionnaire</h2>
+            <p class="intro-text">This questionnaire is designed to help you and your partner explore important aspects of your relationship and future marriage. Take your time to reflect on each question and provide thoughtful answers.</p>
+            
+            <form action="{{ url_for('submit_couple_questionnaire') }}" method="post" class="questionnaire-form">
+                <!-- Personal Information Section -->
+                <div class="question-card personal-info">
+                    <h3>Personal Information</h3>
+                    
+                    <div class="form-group">
+                        <label for="name">Name or nickname *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="status">Status *</label>
+                        <select id="status" name="status" required>
+                            <option value="">Please select</option>
+                            <option value="engaged">Engaged</option>
+                            <option value="planning_to_marry">Planning to Marry</option>
+                            <option value="married">Married</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                </div>
+                
+                <!-- Group questions by category -->
+                {% set current_category = "" %}
+                {% for question in questions %}
+                    {% if question.category != current_category %}
+                        {% set current_category = question.category %}
+                        <div class="section-divider">
+                            <h3>Section: {{ question.category }}</h3>
+                        </div>
+                    {% endif %}
+                    
+                    <div class="question-card">
+                        <p class="question-text">{{ question.text }}</p>
+                        <textarea name="question_{{ question.id }}" rows="4" placeholder="Your answer..." required></textarea>
+                    </div>
+                {% endfor %}
+                
+                <div class="form-actions">
+                    <button type="submit" class="btn primary">Submit Responses</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 LTM.com - License to Marry. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html> 
