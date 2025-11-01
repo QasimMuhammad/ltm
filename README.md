@@ -18,6 +18,15 @@ Port: 5173          REST API   Port: 5000         SQLAlchemy ORM
 
 ### Setup (5 minutes)
 
+**Option 1: Automated Setup**
+```bash
+git clone git@github.com:QasimMuhammad/ltm.git
+cd ltm
+./setup.sh
+```
+
+**Option 2: Manual Setup**
+
 1. **Clone the repository**
    ```bash
    git clone git@github.com:QasimMuhammad/ltm.git
