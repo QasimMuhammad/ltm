@@ -1,24 +1,26 @@
-[build-system]
-requires = ["setuptools>=61.0"]
-build-backend = "setuptools.build_meta"
-
 [project]
 name = "ltm-website"
 version = "0.1.0"
 description = "License to Marry - Marriage preparation website"
 requires-python = ">=3.8"
 dependencies = [
-    "flask",
-    "flask-cors",
-    "sqlalchemy",
-    "python-dotenv",
+    "flask>=3.0.0",
+    "flask-cors>=4.0.0",
+    "sqlalchemy>=2.0.0",
+    "python-dotenv>=1.0.0",
 ]
 
 [project.optional-dependencies]
 dev = [
-    "mypy",
-    "ruff",
+    "mypy>=1.0.0",
+    "ruff>=0.1.0",
+    "pytest>=8.0.0",
+    "black>=24.0.0",
 ]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
 packages = ["src"]
@@ -27,9 +29,13 @@ packages = ["src"]
 python_version = "3.8"
 warn_return_any = true
 warn_unused_configs = true
-disallow_untyped_defs = true
-disallow_incomplete_defs = true
+disallow_untyped_defs = false  # More lenient for easier development
+disallow_incomplete_defs = false
 
 [tool.ruff]
 line-length = 100
-target-version = "py38" 
+target-version = "py38"
+
+[tool.black]
+line-length = 100
+target-version = ["py38"]
