@@ -14,7 +14,7 @@ cd ltm
 
 **Terminal 1 (Backend):**
 ```bash
-python run.py
+uv run run.py
 ```
 
 **Terminal 2 (Frontend):**
