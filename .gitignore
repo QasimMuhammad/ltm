@@ -27,6 +27,17 @@ ENV/
 backend/venv/
 ltm-website/venv/
 
+# Node.js
+node_modules/
+frontend/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+dist/
+dist-ssr/
+frontend/dist/
+
 # Database
 *.db
 *.sqlite
