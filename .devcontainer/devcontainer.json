@@ -1,0 +1,38 @@
+{
+  "name": "LTM Codespace",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/devcontainers/features/python:1": {
+      "version": "3.11"
+    },
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "20"
+    }
+  },
+  "postCreateCommand": "pip install --upgrade pip && pip install uv && uv sync && cd frontend && npm install",
+  "forwardPorts": [
+    5000,
+    5173
+  ],
+  "portsAttributes": {
+    "5000": {
+      "label": "Backend API",
+      "onAutoForward": "openBrowser"
+    },
+    "5173": {
+      "label": "Frontend",
+      "onAutoForward": "openBrowser"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-toolsai.jupyter",
+        "esbenp.prettier-vscode"
+      ]
+    }
+  }
+}
+

@@ -58,6 +58,15 @@ npm run dev
 
 Open: `http://localhost:5173`
 
+## ☁️ Try in GitHub Codespaces
+
+1. In the repository page, press `Code` → `Create codespace on main`.
+2. Wait for the container to finish provisioning (it automatically installs Python deps with `uv sync` and runs `npm install` for the frontend).
+3. Open two terminals in the Codespace:
+   - Backend: `uv run run.py`
+   - Frontend: `cd frontend && npm run dev`
+4. When the forwarded ports notification appears, click the `5173` link to open the app. Use the `5000` link if you want to hit the API directly.
+
 ## 📦 Tech Stack
 
 - **Frontend:** React 18 + Vite
