@@ -7,7 +7,7 @@ Minimal steps to deploy LTM platform to production.
 ### Backend: Railway / Render
 - Push to GitHub
 - Deploy from GitHub
-- Add env vars: `SECRET_KEY`, `DATABASE_URL`, `FLASK_ENV=production`
+- Add env vars: `SECRET_KEY`, `DATABASE_URL`, `FLASK_ENV=production`, `FRONTEND_ORIGINS=https://your-frontend-domain`
 
 ### Frontend: Vercel
 - Import from GitHub
@@ -22,8 +22,7 @@ Minimal steps to deploy LTM platform to production.
 - `requirements.txt` (backup for pip-based platforms)
 
 **Changes needed:**
-- Update CORS origins in `src/backend/app.py` to production domain
-- Set environment variables in hosting platform
+- Set environment variables in hosting platform (`FRONTEND_ORIGINS` for backend, `VITE_API_URL` for frontend)
 - Rebuild frontend with production API URL
 
 ## 🔐 Required Environment Variables
@@ -32,6 +31,7 @@ Minimal steps to deploy LTM platform to production.
 - `SECRET_KEY` - Generate random string
 - `DATABASE_URL` - PostgreSQL (auto-provided) or sqlite
 - `FLASK_ENV=production`
+- `FRONTEND_ORIGINS` - Comma-separated list of allowed frontend URLs (e.g. `https://your-frontend-domain`)
 
 **Frontend:**
 - `VITE_API_URL` - Your backend API URL

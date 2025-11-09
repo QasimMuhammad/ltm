@@ -2,8 +2,8 @@ from flask import Flask, jsonify
 from flask_cors import CORS
 import os
 from dotenv import load_dotenv
-from src.backend.models.database import init_db
 from src.backend.api.routes import api_bp
+from src.backend.models.database import init_db
 
 # Load environment variables
 load_dotenv()
@@ -18,9 +18,22 @@ def create_app():
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     
     # Enable CORS for React frontend
+    default_origins = [
+        "http://localhost:3000",
+        "http://localhost:5173",
+    ]
+
+    extra_origins = os.getenv("FRONTEND_ORIGINS")
+    if extra_origins:
+        default_origins.extend(
+            origin.strip()
+            for origin in extra_origins.split(",")
+            if origin.strip()
+        )
+
     CORS(app, resources={
         r"/api/*": {
-            "origins": ["http://localhost:3000", "http://localhost:5173"],
+            "origins": default_origins,
             "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
             "allow_headers": ["Content-Type", "Authorization"]
         }
