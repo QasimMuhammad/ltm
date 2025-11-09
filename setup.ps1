@@ -19,19 +19,23 @@ function Ensure-Command {
         return
     }
 
-    Ensure-Winget
+    if ($WingetId) {
+        Ensure-Winget
 
-    Write-Host "⬇️  Installing $Description..."
-    winget install --id $WingetId --exact --silent --accept-package-agreements --accept-source-agreements
+        Write-Host "⬇️  Installing $Description..."
+        winget install --id $WingetId --exact --silent --accept-package-agreements --accept-source-agreements
 
-    if (-not (Get-Command $Command -ErrorAction SilentlyContinue)) {
-        throw "❌ Failed to install $Description automatically. Install it manually and re-run the script."
+        if (-not (Get-Command $Command -ErrorAction SilentlyContinue)) {
+            throw "❌ Failed to install $Description automatically. Install it manually and re-run the script."
+        }
+    } else {
+        throw "❌ $Description is required. Install it manually and re-run the script."
     }
 }
 
 Ensure-Command -Command 'py' -WingetId 'Python.Python.3.11' -Description 'Python 3.11'
-Ensure-Command -Command 'node' -WingetId 'OpenJS.NodeJS.LTS' -Description 'Node.js LTS'
-Ensure-Command -Command 'npm' -WingetId 'OpenJS.NodeJS.LTS' -Description 'npm (bundled with Node.js)'
+Ensure-Command -Command 'node' -WingetId '' -Description 'Node.js LTS (install manually from https://nodejs.org/en/download/prebuilt-installer if missing)'
+Ensure-Command -Command 'npm' -WingetId '' -Description 'npm (bundled with Node.js)'
 
 Write-Host "✅ Prerequisites check passed"
 

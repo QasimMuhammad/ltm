@@ -54,7 +54,7 @@ npm install  # First time only
 npm run dev
 ```
 
-> `setup.ps1` installs Git, Python, Node.js, npm, and `uv` automatically with `winget`. If `winget` is missing, the script tells you how to install it first.
+> `setup.ps1` installs Python and `uv` automatically (after you install Git and Node.js manually). If `winget` is missing, the script tells you how to install it first.
 
 Open: `http://localhost:5173`
 
