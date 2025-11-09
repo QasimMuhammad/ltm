@@ -29,7 +29,6 @@ function Ensure-Command {
     }
 }
 
-Ensure-Command -Command 'git' -WingetId 'Git.Git' -Description 'Git'
 Ensure-Command -Command 'py' -WingetId 'Python.Python.3.11' -Description 'Python 3.11'
 Ensure-Command -Command 'node' -WingetId 'OpenJS.NodeJS.LTS' -Description 'Node.js LTS'
 Ensure-Command -Command 'npm' -WingetId 'OpenJS.NodeJS.LTS' -Description 'npm (bundled with Node.js)'
